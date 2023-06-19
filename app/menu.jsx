@@ -23,8 +23,8 @@ const Menu = () => {
   );
 
   return (
-    <div className="flex items-center">
-      <div className="p-3 px-5 mx-32 my-8 bg-zinc-200 rounded shadow-md flex w-[60%] border border-zinc-100">
+    <div className="flex items-center flex-wrap justify-center max-menu:flex-row-reverse">
+      <div className="p-3 px-5 mx-32 my-8 bg-zinc-200 rounded shadow-md flex border border-zinc-100 justify-center">
         <IconMenu icon={BsCpu} name="CPU" />
         <IconMenu icon={BsMotherboard} name="Motherboard" />
         <IconMenu icon={BsHdmi} name="VGA" />
@@ -35,7 +35,7 @@ const Menu = () => {
         <IconMenu icon={FaMouse} name="Mouse" />
         <IconMenu icon={BsKeyboard} name="Keyboard" />
       </div>
-      <div className="mx-32 mt-10 mb-5 w-[40%]">
+      <div className="mx-32 mt-10 mb-5 menu:ms-auto">
         <DimasPay />
       </div>
     </div>
