@@ -1,15 +1,15 @@
-import Navbar from "@/components/navbar";
 import React from "react";
 import Carousel from "./carousel";
 import ShopList from "./shoplist";
 import Menu from "./menu";
+import DimasPay from "./dimaspay";
 
 const Page = () => {
   return (
     <>
-      <Navbar />
-      <div className="mt-[77.25px]">
+      <div className="mt-[116px] max-sm:mt-[74px]">
         <Carousel />
+        <DimasPay />
         <Menu />
         <ShopList />
       </div>
