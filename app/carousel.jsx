@@ -20,12 +20,13 @@ const Carousel = () => {
   };
 
   return (
-    <div className="h-[13vw] w-full mt-14 bg-[#d9d9d9] relative">
+    <div className="h-[13vw] min-h-[70px] w-full max-sm:mt-7 mt-14 bg-[#d9d9d9] relative">
       <Image
         src={imageNow}
         alt="contoh"
         fill={true}
         style={{ objectFit: "cover", objectPosition: "top" }}
+        priority
       />
       <button
         className="absolute left-4 top-1/4 text-white"
