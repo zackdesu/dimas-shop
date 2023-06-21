@@ -20,7 +20,7 @@ const Carousel = () => {
   };
 
   return (
-    <div className="w-[85%] h-52 mt-[54px] mx-auto bg-[#d9d9d9] relative">
+    <div className="h-[13vw] w-full mt-14 bg-[#d9d9d9] relative">
       <Image
         src={imageNow}
         alt="contoh"
@@ -28,13 +28,13 @@ const Carousel = () => {
         style={{ objectFit: "cover", objectPosition: "top" }}
       />
       <button
-        className="absolute left-4 top-1/2 text-white"
+        className="absolute left-4 top-1/4 text-white"
         onClick={prevSlide}
       >
         <AiFillCaretLeft size={30} />
       </button>
       <button
-        className="absolute right-4 top-1/2 text-white"
+        className="absolute right-4 top-1/4 text-white"
         onClick={nextSlide}
       >
         <AiFillCaretRight size={30} />
