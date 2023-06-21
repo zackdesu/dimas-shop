@@ -1,17 +1,19 @@
 import React from "react";
 import { MdPayment } from "react-icons/md";
-import { FiSend } from "react-icons/fi";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 const DimasPay = () => {
   return (
-    <div className="w-72 bg-[#d9d9d9] rounded flex flex-col items-center p-8 ms-auto">
+    <div className="w-[98%] bg-[#d9d9d9] rounded-lg flex items-center justify-around relative bottom-1 sm:bottom-2 md:bottom-3 lg:bottom-4 mx-auto">
       <div className="flex items-center">
-        <MdPayment size={20} className="mr-3" />
-        <h5> DimasPay</h5>
+        <MdPayment className="mr-3 text-[12px] md:text-[20px]" />
+        <p>
+          <b>DimasPay</b>
+        </p>
       </div>
-      <h1 className="my-5">Rp. 6969</h1>
+      <h2 className="my-5">Rp. 6969</h2>
       <button className="p-2 bg-white rounded flex items-center">
-        <AiOutlinePlusCircle className="mr-3" /> Topup
+        <AiOutlinePlusCircle className="mr-3 text-[12px] md:text-[20px]" />{" "}
+        <p>Topup</p>
       </button>
     </div>
   );
