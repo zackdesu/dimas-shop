@@ -1,4 +1,5 @@
 import Card from "@/components/card";
+import { useEffect, useState } from "react";
 
 async function getItems() {
   const base_url =
@@ -13,7 +14,13 @@ async function getItems() {
 }
 
 const ShopList = async () => {
-  const data = await getItems();
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getItems()
+      .then((items) => setData(items))
+      .error((err) => console.log(err));
+  }, []);
 
   return (
     <div className="flex">
