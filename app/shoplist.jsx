@@ -1,3 +1,5 @@
+"use client";
+
 import Card from "@/components/card";
 import { useEffect, useState } from "react";
 
