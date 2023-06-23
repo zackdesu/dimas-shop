@@ -5,9 +5,7 @@ import { useEffect, useState } from "react";
 
 async function getItems() {
   const base_url =
-    process.env.NODE_ENV === "production"
-      ? "https://dimas-shop.vercel.app"
-      : "http://localhost:3000";
+    process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
   const res = await fetch(base_url + "/api/getitems");
   if (!res.ok) {
     console.log(res);
