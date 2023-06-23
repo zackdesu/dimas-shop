@@ -1,27 +1,27 @@
 "use client";
-
 import Card from "@/components/card";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from 'react'
 
-async function getItems() {
-  const base_url =
-    process.env.NODE_ENV === "production" ? "" : "http://localhost:3000";
-  const res = await fetch(base_url + "/api/getitems");
-  if (!res.ok) {
-    console.log(res);
-  }
-  return res.json();
-}
 
-const ShopList = async () => {
-  const [data, setData] = useState([]);
+const ShopList = () => {
 
-  useEffect(() => {
-    getItems()
-      .then((items) => setData(items))
-      .error((err) => console.log(err));
+  const [data, setData] = useState([])
+
+useEffect(() => {
+    const getItems = async () => {
+      const res = await fetch("/api/items");
+
+      if (!res.ok) {
+        console.log(res);
+      }
+
+      const result = await res.json();
+      setData(result);
+    };
+
+    getItems();
+
   }, []);
-
   return (
     <div className="flex">
       <div className="mt-10 mb-5 max-w-full">
