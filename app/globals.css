@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply bg-neutral-100 text-black transition-colors duration-200 min-h-[100vh] flex flex-col mx-4 sm:mx-8 md:mx-16 lg:mx-32;
+    @apply bg-neutral-100 text-black transition-colors duration-200 h-[2000px] flex flex-col mx-4 sm:mx-8 md:mx-16 lg:mx-32;
   }
 
   html * {
