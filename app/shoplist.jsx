@@ -1,15 +1,14 @@
 "use client";
-import Card from "@/components/card";
-import {useEffect, useState} from 'react'
-
+import React, { useEffect, useState, Suspense } from "react";
+const Card = React.lazy(() => import("../components/card"));
+import Loader from "@/utils/loader";
 
 const ShopList = () => {
+  const [data, setData] = useState([]);
 
-  const [data, setData] = useState([])
-
-useEffect(() => {
+  useEffect(() => {
     const getItems = async () => {
-      const res = await fetch("/api/items");
+      const res = await fetch("/api/items", { revalidate: 60 });
 
       if (!res.ok) {
         console.log(res);
@@ -20,7 +19,6 @@ useEffect(() => {
     };
 
     getItems();
-
   }, []);
   return (
     <div className="flex">
@@ -28,17 +26,20 @@ useEffect(() => {
         <h2>Rekomendasi Untukmu</h2>
         <p className="text-[#00000090]">Karena kamu baru saja mencari Laptop</p>
         <div className="mt-5 flex flex-row overflow-x-auto wrapper">
-          {data.slice(0, 8).map((item) => (
-            <Card
-              key={item.id}
-              Nama={item.Nama}
-              Rating={item.Rating}
-              Terjual={item.Terjual}
-              Harga={new Intl.NumberFormat("id-ID", {
-                style: "currency",
-                currency: "IDR",
-              }).format(item.Harga)}
-            />
+          {data.slice(0, 8).map((item, i) => (
+            <Suspense fallback={<Loader />} key={i}>
+              <div key={item.id}>
+                <Card
+                  Nama={item.Nama}
+                  Rating={item.Rating}
+                  Terjual={item.Terjual}
+                  Harga={new Intl.NumberFormat("id-ID", {
+                    style: "currency",
+                    currency: "IDR",
+                  }).format(item.Harga)}
+                />
+              </div>
+            </Suspense>
           ))}
         </div>
       </div>
