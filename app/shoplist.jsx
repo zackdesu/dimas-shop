@@ -2,6 +2,7 @@
 import React, { useEffect, useState, Suspense } from "react";
 const Card = React.lazy(() => import("../components/card"));
 import Loader from "@/utils/loader";
+import Link from "next/link";
 
 const ShopList = () => {
   const [data, setData] = useState([]);
@@ -28,17 +29,19 @@ const ShopList = () => {
         <div className="mt-5 flex flex-row overflow-x-auto wrapper">
           {data.slice(0, 8).map((item, i) => (
             <Suspense fallback={<Loader />} key={i}>
-              <div key={item.id}>
-                <Card
-                  Nama={item.Nama}
-                  Rating={item.Rating}
-                  Terjual={item.Terjual}
-                  Harga={new Intl.NumberFormat("id-ID", {
-                    style: "currency",
-                    currency: "IDR",
-                  }).format(item.Harga)}
-                />
-              </div>
+              <Link href={"/product/" + item.id}>
+                <div>
+                  <Card
+                    Nama={item.Nama}
+                    Rating={item.Rating}
+                    Terjual={item.Terjual}
+                    Harga={new Intl.NumberFormat("id-ID", {
+                      style: "currency",
+                      currency: "IDR",
+                    }).format(item.Harga)}
+                  />
+                </div>
+              </Link>
             </Suspense>
           ))}
         </div>
