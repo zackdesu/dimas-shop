@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { BsPersonFill } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
 
 const Navbar = () => {
@@ -15,7 +16,13 @@ const Navbar = () => {
         />
         <h1 className="max-sm:hidden">Dimas Tech Supply</h1>
       </div>
-      <FiSearch size={30} className="max-sm:w-[22px]" />
+      <div className="flex items-center">
+        <BsPersonFill
+          size={40}
+          className="bg-neutral-200 rounded-full p-2 mx-2 max-sm:w-[30px] max-sm:h-[30px] cursor-pointer"
+        />
+        <FiSearch size={30} className="max-sm:w-[22px] mx-2 cursor-pointer" />
+      </div>
     </header>
   );
 };
