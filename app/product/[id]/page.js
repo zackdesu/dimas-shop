@@ -39,11 +39,11 @@ const Page = ({ params }) => {
 
   return (
     <>
-      <div className="flex justify-between my-5">
-        <div className="w-[40vw] h-[25vw] bg-black"></div>
-        <div>
+      <div className="flex max-sm:flex-col justify-between my-5">
+        <div className="w-[40vw] max-sm:w-full max-sm:h-[200px] h-[25vw] bg-black"></div>
+        <div className="mx-2 max-sm:my-5">
           <h1>{data.Nama}</h1>
-          <p className="flex items-center mb-10">
+          <p className="flex items-center mb-10 max-sm:mb-4">
             <AiFillStar className="text-yellow-500" /> {data.Rating} | Terjual{" "}
             {data.Terjual}
           </p>
@@ -62,16 +62,17 @@ const Page = ({ params }) => {
               type="number"
               className="w-[40px]"
               onChange={(e) => {
-                if (e.target.value <= 0) e.target.value = 1;
+                if (e.target.value <= 0) e.target.value = null;
                 if (e.target.value >= data.Jumlah) e.target.value = data.Jumlah;
                 setValue(e.target.value);
               }}
             />
           </div>
-          <button className="bg-white w-full font-semibold">Buy</button>
+          <button className="bg-zinc-600 text-zinc-100 w-full font-semibold max-sm:fixed max-sm:bottom-2 max-sm:left-2 max-sm:right-2">Buy</button>
         </div>
       </div>
-      <table className="my-20 text-left">
+	  <h2 className="mt-20 mb-3">Detail</h2>
+      <table className="text-left">
         <tbody>
           <Table nama="Kondisi" input={data.Kondisi} />
           <Table nama="Jenis" input={data.Jenis} />
