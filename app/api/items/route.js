@@ -11,13 +11,3 @@ export async function GET() {
     NextResponse.json("Database Error", { status:500 });
   }
 }
-
-// const handler = async (req, res) => {
-//   try {
-//     const getItems = await prisma.barang.findMany();
-//     res.status(200).json(getItems);
-//   } catch (err) {
-//     res.status(505).json(err);
-//   }
-// };
-// export default handler;

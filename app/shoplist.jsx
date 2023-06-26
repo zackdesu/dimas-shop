@@ -22,7 +22,7 @@ const ShopList = () => {
     getItems();
   }, []);
   return (
-    <div className="flex">
+    <div className="flex flex-col">
       <div className="mt-10 mb-5 max-w-full">
         <h2>Rekomendasi Untukmu</h2>
         <p className="text-[#00000090]">Karena kamu baru saja mencari Laptop</p>
@@ -46,6 +46,29 @@ const ShopList = () => {
           ))}
         </div>
       </div>
+	  <div className="my-5">
+		<h2>Barang lainnya</h2>
+		<div className="flex flex-wrap mt-5">
+          {data.slice(7).map((item, i) => (
+            <Suspense fallback={<Loader />} key={i}>
+              <Link href={"/product/" + item.id}>
+                <div>
+                  <Card
+                    Nama={item.Nama}
+                    Rating={item.Rating}
+                    Terjual={item.Terjual}
+                    Harga={new Intl.NumberFormat("id-ID", {
+                      style: "currency",
+                      currency: "IDR",
+                    }).format(item.Harga)}
+					className="mb-5"
+                  />
+                </div>
+              </Link>
+            </Suspense>
+          ))}
+		</div>
+	  </div>
     </div>
   );
 };
