@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply bg-neutral-100 text-black transition-colors duration-200 h-[2000px] flex flex-col mx-4 sm:mx-8 md:mx-16 lg:mx-32;
+    @apply bg-neutral-100 text-black transition-colors duration-200 flex flex-col mx-4 sm:mx-8 md:mx-16 xl:mx-32;
   }
 
   html * {
@@ -41,9 +41,6 @@
   p {
     @apply text-xs md:text-base;
   }
-  button {
-    @apply p-2 rounded;
-  }
 }
 
 /* Firefox */
@@ -65,4 +62,15 @@
 *::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: #b5b5b5;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
