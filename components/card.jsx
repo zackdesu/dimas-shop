@@ -3,8 +3,8 @@ import { AiFillStar } from "react-icons/ai";
 
 const Card = ({ Nama, Rating, Terjual, Harga, className }) => {
   const TruncatedText = ({ text }) => {
-    if (!text || text.length <= 17) return <span>{text}</span>;
-    const truncatedText = text.slice(0, 17) + "...";
+    if (!text || text.length <= 15) return <span>{text}</span>;
+    const truncatedText = text.slice(0, 15) + "...";
     return (
       <span className="whitespace-nowrap overflow-hidden text-ellipsis">
         {truncatedText}
