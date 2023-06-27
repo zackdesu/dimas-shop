@@ -48,7 +48,7 @@ const ShopList = () => {
       </div>
 	  <div className="my-5">
 		<h2>Barang lainnya</h2>
-		<div className="flex flex-wrap mt-5">
+		<div className="flex flex-wrap mt-5 justify-center">
           {data.slice(7).map((item, i) => (
             <Suspense fallback={<Loader />} key={i}>
               <Link href={"/product/" + item.id}>
