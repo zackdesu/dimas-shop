@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="id">
       <body className="box-border font-poppins">
         <Navbar />
-        <div className="mt-[116px] max-sm:mt-[74px]">{children}</div>
+        <div className="mt-[86px] max-sm:mt-[63px]">{children}</div>
       </body>
     </html>
   );
