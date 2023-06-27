@@ -22,7 +22,7 @@ const ShopList = () => {
     getItems();
   }, []);
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col h-[2000px]">
       <div className="mt-10 mb-5 max-w-full">
         <h2>Rekomendasi Untukmu</h2>
         <p className="text-[#00000090]">Karena kamu baru saja mencari Laptop</p>
