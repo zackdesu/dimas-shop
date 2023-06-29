@@ -1,6 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { AiFillStar } from "react-icons/ai";
+import ProductLoader from '@/utils/productloader'
 
 const Table = ({ nama, input }) => (
   <tr>
@@ -14,6 +15,7 @@ const Page = ({ params }) => {
   const [harga, setHarga] = useState(0);
   const [value, setValue] = useState(1);
   const [hasil, setHasil] = useState(0);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const getItems = async () => {
@@ -29,6 +31,7 @@ const Page = ({ params }) => {
       setData(result[0]);
       setHarga(result[0].Harga);
       console.log(result[0]);
+      setIsLoading(false)
     };
     getItems();
   }, []);
@@ -37,8 +40,7 @@ const Page = ({ params }) => {
     setHasil(harga * value);
   }, [harga, value]);
 
-  return (
-  <>
+  return isLoading ? (<ProductLoader/>) : (<>
       <div className="flex max-lg:flex-col justify-between my-5">
       <div className="flex max-sm:flex-col justify-between">
         <div className="w-[250px] h-[250px] max-md:w-[200px] max-md:h-[200px] max-sm:w-full max-sm:h-[200px] bg-black shadow"></div>
@@ -160,8 +162,7 @@ Vestibulum sed arcu non odio euismod. Odio aenean sed adipiscing diam donec adip
         </div>
       </div>
       <button className="bg-zinc-600 text-zinc-100 font-semibold sm:hidden fixed bottom-2 left-5 right-5 p-2 m-0 rounded shadow">Buy</button>
-      </>
-  );
+      </>)
 };
 
 export default Page;
