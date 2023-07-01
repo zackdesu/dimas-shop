@@ -1,7 +1,10 @@
+'use client'
+
 import Image from "next/image";
 import React from "react";
 import { BsPersonFill } from "react-icons/bs";
 import { FiSearch } from "react-icons/fi";
+import { signIn } from 'next-auth/react'
 
 const Navbar = () => {
   
@@ -21,6 +24,7 @@ const Navbar = () => {
         <BsPersonFill
           size={30}
           className="mx-2 max-sm:w-[22px] max-sm:h-[22px] cursor-pointer"
+	  onClick={() => {signIn()}}
         />
         <FiSearch size={30} className="max-sm:w-[22px] mx-2 cursor-pointer" />
       </div>
