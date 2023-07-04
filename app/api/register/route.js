@@ -3,17 +3,25 @@ import bcrypt from 'bcryptjs';
 import { NextResponse } from 'next/server';
 
 export async function POST(req) {
-  const {nama, email, password} = await req.json();
+  const {nama, email, password, dimaspay} = await req.json();
 
   if(!nama || !email || !password) {
 	return NextResponse.json({message: 'Missing Fields'}, {status: 406})
   }
 
-  const exist = await prisma.user.findFirst({
+  const isUserExist = await prisma.user.findFirst({
+  	where: {name: nama}
+  })
+
+  if(isUserExist) {
+  	return NextResponse.json({message: 'User already exists!'}, {status: 400})
+  }
+
+  const isEmailExist = await prisma.user.findFirst({
   	where: {email}
   })
 
-  if(exist) {
+  if(isEmailExist) {
   	return NextResponse.json({message: 'Email already exists!'}, {status: 400})
   }
 
@@ -23,7 +31,8 @@ export async function POST(req) {
   	data: {
 		name: nama,
 		email,
-		password: hashedPassword
+		password: hashedPassword,
+		dimaspay
 	}
   })
   return NextResponse.json(user, {status: 200})
