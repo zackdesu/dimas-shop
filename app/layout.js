@@ -1,4 +1,3 @@
-import Navbar from "@/components/navbar";
 import "./globals.css";
 import Provider from "./context/AuthContext";
 import React from 'react'
