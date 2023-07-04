@@ -34,6 +34,7 @@ const Page = ({ params }) => {
       setIsLoading(false)
     };
     getItems();
+// eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
