@@ -29,7 +29,7 @@ export default function Page() {
                         <InputForm nama="Username" required/>
                         <InputForm nama="Password" type="password" className="invalid:ring-pink-500 invalid:text-pink-500" required minLength={6} maxLength={20}/>
                         <button type="submit" className="py-2 px-5 bg-neutral-700 text-neutral-100 mt-5 rounded shadow">Login</button>
-			<p className="mt-5">Don't have any? Create <Link href="/register" className="text-blue-500">here</Link></p>
+			<p className="mt-5">Don&apos;t have any? Create <Link href="/register" className="text-blue-500">here</Link></p>
                 </form>
         )
 }
